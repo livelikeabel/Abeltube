@@ -4,9 +4,17 @@ header.header
             i.fab.fa-youtube
     .header__column
         form(action=routes.search, method="get")
-            input(type="text", placeholder="Search by term...", name="term")
+            input(name="term", type="text", placeholder="Search by term...")
     .header__column
         ul
+        if user.isAuthenticated
+            li
+                a(href=routes.upload) Upload
+            li
+                a(href=routes.userDetail(user.id)) Profile
+            li
+                a(href=routes.logout) Log out
+        else
             li
                 a(href=routes.join) Join
             li
