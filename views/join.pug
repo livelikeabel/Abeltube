@@ -3,9 +3,9 @@ extends layouts/main
 block content
     .form-container
         form(action=routes.join, method="post")
-            input(name="name", type="text", placeholder="Full Name")
-            input(name="email", type="email", placeholder="Email")
-            input(name="password", type="password", placeholder="Password")
-            input(name="password2", type="password", placeholder="Verify Password")
+            input(name="name", type="text", placeholder="Full Name", required=true)
+            input(name="email", type="email", placeholder="Email", required=true)
+            input(name="password", type="password", placeholder="Password", required=true)
+            input(name="password2", type="password", placeholder="Verify Password", required=true)
             input(type="submit", value="Join Now")
         include partials/socialLogin
