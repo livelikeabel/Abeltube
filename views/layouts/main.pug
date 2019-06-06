@@ -1,11 +1,9 @@
 doctype html
 html
     head
-        title  Abeltube
+        title #{pageTitle} | #{siteName}
     body
-        header
-            h1 Abel tube 📺
+        include ../partials/header
         main
             block content
-        footer
-            span &copy; Abeltube
+        include ../partials/footer
