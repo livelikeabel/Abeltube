@@ -15,14 +15,18 @@ export const search = async (req, res) => {
   const {
     query: { term: searchingBy }
   } = req;
-
+  let videos = [];
   try {
-    const videos = await Video.find({}).sort({ _id: -1 });
+    videos = await Video.find({
+      title: { $regex: searchingBy, $options: "i" }
+    }).sort({
+      _id: -1
+    });
     res.render("search", { pageTitle: "search", searchingBy, videos });
   } catch (err) {
     console.log(err);
-    res.render("home", { pageTitle: "Home", videos: [] });
   }
+  res.render("home", { pageTitle: "Home", videos });
 };
 
 export const getUpload = (req, res) => {
